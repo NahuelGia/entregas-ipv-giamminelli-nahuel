@@ -10,7 +10,7 @@ config_version=5
 
 [application]
 
-config/name="Desafia 0-A"
+config/name="entrega-0-A-giamminelli-nahuel"
 run/main_scene="uid://cysxa4u08qr3w"
 config/features=PackedStringArray("4.6", "Forward Plus")
 config/icon="res://icon.svg"
