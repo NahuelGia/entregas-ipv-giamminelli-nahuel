@@ -1,0 +1,59 @@
+[gd_scene format=3 uid="uid://dun638jaoxtdq"]
+
+[ext_resource type="PackedScene" uid="uid://4f4o4inaydsg" path="res://entities/player/player.tscn" id="1_0xm2m"]
+[ext_resource type="Script" uid="uid://bqr15cmta1ygr" path="res://main.gd" id="1_h2yge"]
+[ext_resource type="Texture2D" uid="uid://dwg3vpmlm24nh" path="res://assets/textures/floor.png" id="2_h2yge"]
+[ext_resource type="Script" uid="uid://b18peqxstrttb" path="res://entities/enemies/turrets_spawner.gd" id="4_lquwl"]
+[ext_resource type="PackedScene" uid="uid://dro74y0bddecm" path="res://entities/enemies/turret.tscn" id="5_7mycd"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1bvp3"]
+size = Vector2(2713, 228)
+
+[node name="Main" type="Node" unique_id=102990869]
+script = ExtResource("1_h2yge")
+
+[node name="Player" parent="." unique_id=1872559470 instance=ExtResource("1_0xm2m")]
+position = Vector2(403, 280)
+
+[node name="Camera2D" type="Camera2D" parent="Player" unique_id=1868289920]
+
+[node name="Floor" type="StaticBody2D" parent="." unique_id=1632058947]
+position = Vector2(192, 446)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Floor" unique_id=733086474]
+position = Vector2(1171.5, 85)
+shape = SubResource("RectangleShape2D_1bvp3")
+
+[node name="Sprite2D" type="Sprite2D" parent="Floor" unique_id=667737075]
+position = Vector2(1170, 143.5)
+scale = Vector2(41.181816, 5.3484845)
+texture = ExtResource("2_h2yge")
+
+[node name="Ramp" type="StaticBody2D" parent="Floor" unique_id=879747752]
+position = Vector2(387.25354, -15.492371)
+rotation = -0.51433325
+scale = Vector2(0.11659241, 0.04426873)
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Floor/Ramp" unique_id=167061138]
+position = Vector2(1171.5, 85)
+shape = SubResource("RectangleShape2D_1bvp3")
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="Floor/Ramp" unique_id=1396017221]
+position = Vector2(1170, 143.5)
+scale = Vector2(41.181816, 5.3484845)
+texture = ExtResource("2_h2yge")
+metadata/_edit_group_ = true
+
+[node name="TurretsSpawner" type="Node" parent="." unique_id=1286547200]
+script = ExtResource("4_lquwl")
+random_spawn_area = Rect2(0, 40, 1000, 400)
+turret_scene = ExtResource("5_7mycd")
+fixed_positions = Array[Vector2]([Vector2(900.357, 380)])
+
+[node name="SpawnStart" type="Marker2D" parent="TurretsSpawner" unique_id=135982147]
+position = Vector2(1122.194, 380.005)
+
+[node name="SpawnEnd" type="Marker2D" parent="TurretsSpawner" unique_id=1109355338]
+position = Vector2(2569.189, 380.781)

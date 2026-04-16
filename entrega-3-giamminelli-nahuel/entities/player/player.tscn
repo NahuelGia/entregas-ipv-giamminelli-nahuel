@@ -1,0 +1,32 @@
+[gd_scene format=3 uid="uid://4f4o4inaydsg"]
+
+[ext_resource type="Script" uid="uid://ctglg6mgfvsnl" path="res://entities/player/player.gd" id="1_i3pqv"]
+[ext_resource type="Texture2D" uid="uid://j14wrxanwhni" path="res://assets/textures/player.png" id="2_hqtel"]
+[ext_resource type="Texture2D" uid="uid://doiohr46lpdc7" path="res://assets/textures/cannon.png" id="3_sweqy"]
+[ext_resource type="Script" uid="uid://x2iq05g8j40c" path="res://entities/player/Cannon.gd" id="4_hqtel"]
+[ext_resource type="PackedScene" uid="uid://bgngoglm2hs6g" path="res://entities/player/PlayerProjectile.tscn" id="5_sweqy"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2hs0m"]
+size = Vector2(64, 64)
+
+[node name="Player" type="CharacterBody2D" unique_id=1872559470 groups=["player"]]
+script = ExtResource("1_i3pqv")
+
+[node name="Body" type="Sprite2D" parent="." unique_id=1222710826]
+texture = ExtResource("2_hqtel")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1286856993]
+shape = SubResource("RectangleShape2D_2hs0m")
+
+[node name="Cannon" type="Sprite2D" parent="." unique_id=1003775949 groups=["player"]]
+texture = ExtResource("3_sweqy")
+script = ExtResource("4_hqtel")
+projectile_scene = ExtResource("5_sweqy")
+
+[node name="CannonTip" type="Marker2D" parent="Cannon" unique_id=1739772305]
+position = Vector2(15, 0)
+
+[node name="Hitbox" type="Area2D" parent="." unique_id=1048434150]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox" unique_id=1749649016]
+shape = SubResource("RectangleShape2D_2hs0m")

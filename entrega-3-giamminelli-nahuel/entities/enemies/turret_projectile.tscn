@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://cnv7nyt6hvvq6"]
+
+[ext_resource type="Texture2D" uid="uid://baoiu3dij5lcd" path="res://assets/textures/proyectile_turret.png" id="1_o4bfs"]
+[ext_resource type="Script" uid="uid://cnn4umsqbnkqy" path="res://entities/enemies/turret_projectile.gd" id="2_qv8uf"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_05i1k"]
+radius = 7.8201594
+
+[node name="TurretProjectile" type="Sprite2D" unique_id=406894425]
+texture = ExtResource("1_o4bfs")
+script = ExtResource("2_qv8uf")
+
+[node name="LifetimeTimer" type="Timer" parent="." unique_id=1459996964]
+
+[node name="HitArea" type="Area2D" parent="." unique_id=1484891276 groups=["turret_projectile"]]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitArea" unique_id=67343371]
+shape = SubResource("CircleShape2D_05i1k")

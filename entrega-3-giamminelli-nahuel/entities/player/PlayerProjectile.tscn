@@ -1,0 +1,15 @@
+[gd_scene format=3 uid="uid://bgngoglm2hs6g"]
+
+[ext_resource type="PackedScene" uid="uid://bc645rb3pifir" path="res://entities/Projectile.tscn" id="1"]
+[ext_resource type="Texture2D" uid="uid://bgwqma6wob4dw" path="res://assets/textures/proyectile_player.png" id="2"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_8ulq3"]
+radius = 7.8492746
+
+[node name="PlayerProjectile" unique_id=775486276 groups=["player"] instance=ExtResource("1")]
+texture = ExtResource("2")
+
+[node name="HitArea" type="Area2D" parent="." index="1" unique_id=2039334165]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitArea" index="0" unique_id=1945459993]
+shape = SubResource("CircleShape2D_8ulq3")
